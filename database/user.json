@@ -1,0 +1,19 @@
+{
+    "name": "Akbarjon Atakhanov",
+    "profession": "Software Engineer",
+    "age": 28, 
+    "residence": "South Korea, Seoul",
+    "languages": ["Uzbek", "Korean", "English", "Russian", "Turkish"],
+    "skills": ["HTML", "CSS", "JS", "NodeJS"],
+    "extra_skills": ["Bootstrap", "GIT Knowledge"],
+    "work_place": "IT Company",
+    "service_desc": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.",
+    "about_me": "Cursus mi pretium tellus duis convallis tempus leo. Tempus leo eu aenean sed diam urna tempor. Urna tempor pulvinar vivamus fringilla lacus nec metus.",
+    "city": "Seoul",
+    "title": ["Flower", "Seedlings", "Gardener", "Old", "New"],
+    "flower_desc": ["What is a Flower?", "What is a Seedling?", "Who is Gardener?"],
+    "flower_name": ["Tulip", "Daffodil", "Poppy", "Sunflower", "Bluebell", "Rose", "Snowdrop", "Cherry", "blossom"],
+    "flower_price": ["15$", "25$", "12$", "20$", "35$", "30$", "22$", "19$", "9$"],
+    "famous_words": ["World is beautiful with Flowers"],
+    "famous_name": ["Steve Jobs"]
+}
