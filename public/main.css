@@ -305,6 +305,14 @@
 
  /************ middle-frame starts ************/
 
+/* -----------middle-top start here...------------- */
+ .main-frame .middle-frame {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+ }
+
  .main-frame .middle-frame .middle-top {
     position: relative;
     display: flex;
@@ -386,45 +394,128 @@
     margin-left: 917.96px;
     position: absolute;
 }
-.rectangle-icon-1 {
+.rectangle-icon{
     width: 15.93px;
     height: 15.65px;
-    margin-bottom: 276.44px;
-    margin-left: 892.37px;
     position: absolute;
 }
+.rectangle-icon-1 {
+    margin-bottom: 276.44px;
+    margin-left: 892.37px;
+}
 .rectangle-icon-2 {
-    width: 15.93px;
-    height: 15.65px;
     margin-top: 170.69px;
     margin-left: 370.4px;
+}
+.ellipse-icon {
+    width: 16.02px;
+    height: 15.57px;
     position: absolute;
 }
  .ellipse-icon-1 {
-    width: 16.02px;
-    height: 15.57px;
     margin-bottom: 308.33px;
     margin-left: 504.45px;
-    position: absolute;
 }
  .ellipse-icon-2 {
-    width: 16.02px;
-    height: 15.57px;
     margin-bottom: 409.66px;
     margin-left: 20px;
-    position: absolute;
 }
  .ellipse-icon-3 {
-    width: 16.02px;
-    height: 15.57px;
     margin-top: 419.22px;
     margin-left: 84.1px;
-    position: absolute;
 }
 .ellipse-icon-4 {
-    width: 16.02px;
-    height: 15.57px;
     margin-top: 324.09px;
     margin-left: 517.96px;
-    position: absolute;
+}
+
+/* -----------middle-bottom section start here...------------- */
+
+.middle-frame .middle-bottom {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 970px;
+    height: 653px;
+    /* background-color: grey; */
+    justify-content: space-between;
+}
+/* -----------middle-bottom-top------------- */
+.middle-frame .middle-bottom .middle-bottom-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+.middle-frame .middle-bottom .middle-bottom-top .middle-bottom-top-title {
+    width: 193px;
+    height: 40px;
+    font-size: 32px;
+    font-style: bold;
+    font-weight: 700;
+    line-height: 123.6%;   
+    margin-bottom: 15px;
+}
+.middle-frame .middle-bottom .middle-bottom-top .middle-bottom-top-desc {
+    width: 438px;
+    height: 68px;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    color: #767676;
+}
+
+/* -----------middle-bottom-bottom------------- */
+.middle-frame .middle-bottom .middle-bottom-bottom .grid-container {
+    display: grid;
+    /* Defines 4 columns, each taking up an equal fraction of the available space */
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Defines 2 rows, each taking up an equal fraction of the available space */
+    grid-template-rows: 1fr 1fr;
+    /* Optional: Adds space between the grid items */
+    gap: 20px; 
+}
+
+.middle-frame .middle-bottom .middle-bottom-bottom .grid-container .grid-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    height: 225px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    text-align: center;
+}
+
+.middle-bottom-bottom .grid-container .grid-item img {
+    width: 68px;
+    height: 68px;
+}
+
+.middle-bottom-bottom .grid-container .grid-item h3 {
+    width: 158px;
+    height: 22px;
+    font-size: 18px;
+    font-weight: 500px;
+    line-height: 123.6%;
+    font-style: medium;
+}
+.middle-bottom-bottom .grid-container .grid-item p {
+    width: 80%;
+    font-size: 15px;
+    line-height: 24px;
+    color: #767676;
+    margin: 0 0 7px 0;   
+}
+.middle-bottom-bottom .grid-container .grid-item .order-btn img {
+    width: 86px;
+    height: 20px;
+}
+.middle-bottom-bottom .grid-container .grid-item .order-btn {
+    background-color: white;
+    border-style: none;
 }
