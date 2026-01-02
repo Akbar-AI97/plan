@@ -2,6 +2,7 @@ console.log("Web serverni boshlash");
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const { json } = require("stream/consumers");
 
 
 // MongoDB call
@@ -32,31 +33,17 @@ app.set("view engine", "ejs"); //BSSR: Backend Server Side Rendering (Creating F
 app.post("/create-item", async (req, res) => {
     console.log("user entered to /create-item");
     try {
-        console.log(req.body);
-        const new_reja = req.body.reja;
-        db.collection("plans").insertOne({reja: new_reja});
-        res.end("successfully added");
+        // console.log(req.body);
+        const new_reja = {reja: req.body.reja};
+        db.collection("plans").insertOne(new_reja);
+        res.json({reja: new_reja.reja});
+
+        // const idString = new_reja._id.toString(); //Getting the "id" of item "new_reja"
+        // console.log(idString);
     } catch {
         console.log(err);
         res.end("something went wrong");
     }
-})
-
-// app.post("/create-item", (req, res) => {
-//     console.log(req.body);
-//     const new_reja = req.body.reja;
-//     db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
-//         if(err) {
-//             console.log(err);
-//             res.end("something went wrong");
-//         } else {
-//             res.end("successfully added");
-//         }
-//     })
-// })
-
-app.get("/author", (req, res) => {
-    res.render("author", {user: user});
 })
 
 app.get("/", async (req, res) => {
@@ -67,21 +54,13 @@ app.get("/", async (req, res) => {
 
         res.render("reja", { items: data });
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         res.end("Something went wrong");
     }
 });
 
-// app.get("/", function(req, res) {
-//     db.collection("plans").find().toArray((err, data) => {
-//         if(err) {
-//             console.log(err);
-//             res.end("something went wrong");
-//         } else {
-//             console.log(data);
-//             res.render("reja");
-//         }
-//     });
-// })
+app.get("/author", (req, res) => {
+    res.render("author", {user: user});
+})
 
 module.exports = app;
