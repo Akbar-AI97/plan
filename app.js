@@ -43,10 +43,30 @@ app.post("/create-item", async (req, res) => {
 
 app.post("/delete-me", async (req, res) => {
     console.log("user entered to /delete-me");
+    
+    const data = req.body;
 
-    await db.collection("plans").deleteOne({_id: new ObjectId(req.body.id)});
-    res.json({state: "success"});
+    await db.collection("plans").deleteOne({_id: new ObjectId(data.id)});
+    res.json({
+        _id: data.id
+    });
 });
+
+app.post("/edit-item", async (req, res) => {
+    console.log("user entered to /edit-item");
+
+    const data = req.body;
+
+    await db.collection("plans").findOneAndUpdate(
+        {_id: new ObjectId(data.id)},
+        {$set: {reja: data.new_input}}
+    );
+
+    res.json({
+        _id: data.id,
+        reja: data.new_input 
+    });
+})
 
 app.get("/", async (req, res) => {
     console.log("user entered to /");

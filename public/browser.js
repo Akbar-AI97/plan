@@ -19,24 +19,6 @@ document.querySelector("form").addEventListener("submit", function(e) {
     });
 });
 
-document.addEventListener("click", function(e) {
-    // console.log(e.target);
-    if(e.target.classList.contains("delete-me")) {
-        e.preventDefault();
-        if(confirm("Are you sure to delete this?")) {
-            axios
-            .post("/delete-me", {id: e.target.getAttribute("data-id")})
-            .then((response) => {
-                console.log(response.data);
-                e.target.parentElement.parentElement.remove();
-            })
-            .catch((err) => {
-                console.log("Please, try again!", err);
-            });
-        }
-    }
-});
-
 function itemTemplate(item) {
     return `<li class="list-group-item list-group-item-info d-flex align-items-center justify-content-between">
                 <span class="item-text">${item.reja}</span>
@@ -46,3 +28,51 @@ function itemTemplate(item) {
                 </div>
             </li>`;
 }
+
+document.addEventListener("click", function(e) {
+    const deleteButton = e.target.closest(".delete-me");
+    // console.log(e.target);
+    if(deleteButton) {
+        const buttonID = deleteButton.dataset.id;
+        e.preventDefault();
+        if(confirm("Are you sure to delete this?")) {
+            axios
+            .post("/delete-me", {id: buttonID})
+            .then((response) => {
+                console.log(response.data);
+                deleteButton.parentElement.parentElement.remove();
+            })
+            .catch((err) => {
+                console.log("Please, try again!", err);
+            });
+        }
+    }
+});
+
+document.addEventListener("click", function(e) {
+
+    const editButton = e.target.closest(".edit-me");
+    if(editButton) {
+        const buttonID = editButton.dataset.id;
+        const item = e.target.parentElement.parentElement.querySelector(".item-text");
+
+        const userInput = prompt("Please, edit your plan", item.innerHTML);
+
+        if(userInput) {
+            axios
+            .post("/edit-item", {
+                id: buttonID,
+                new_input: userInput,
+            })
+            .then((response) => {
+                console.log(response.data);
+                item.innerHTML = userInput;
+            })
+            .catch((err) => {
+                console.log("Please, try again!", err);
+            });
+        }
+        
+    }
+});
+
