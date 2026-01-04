@@ -52,6 +52,17 @@ app.post("/delete-me", async (req, res) => {
     });
 });
 
+app.post("/delete-all", async (req, res) => {
+  try {
+    await db.collection("plans").deleteMany({});
+    res.json({ state: "All data deleted" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ state: "Delete failed" });
+  }
+});
+
+
 app.post("/edit-item", async (req, res) => {
     console.log("user entered to /edit-item");
 

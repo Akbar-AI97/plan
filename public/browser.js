@@ -2,6 +2,7 @@ console.log("FrontEnd JS ishga tushdi...");
 
 let createField = document.getElementById("create-field");
 
+// CREATE
 document.querySelector("form").addEventListener("submit", function(e) {
     e.preventDefault();
 
@@ -29,6 +30,7 @@ function itemTemplate(item) {
             </li>`;
 }
 
+// DELETE
 document.addEventListener("click", function(e) {
     const deleteButton = e.target.closest(".delete-me");
     // console.log(e.target);
@@ -49,8 +51,8 @@ document.addEventListener("click", function(e) {
     }
 });
 
+// EDIT
 document.addEventListener("click", function(e) {
-
     const editButton = e.target.closest(".edit-me");
     if(editButton) {
         const buttonID = editButton.dataset.id;
@@ -76,3 +78,13 @@ document.addEventListener("click", function(e) {
     }
 });
 
+// DELETE ALL
+document.getElementById("clean-all").addEventListener("click", () => {
+  axios
+    .post("/delete-all")
+    .then(res => {
+      alert(res.data.state);
+      location.reload();
+    })
+    .catch(err => console.error(err));
+});
